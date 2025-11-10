@@ -1,0 +1,154 @@
+.page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--color-primarywhite);
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backIcon,
+.heartIcon {
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.activeHeart {
+  color: #ff4d4d;
+}
+
+.more {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primaryblack);
+}
+
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primaryblack);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 100%;
+  height: 220px;
+  background: #e0e0e0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primaryblack);
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.availability {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 70px;
+}
+
+.contactBtn {
+  flex: 1;
+  background: #ddd;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.addBtn {
+  flex: 1;
+  background: var(--color-primaryblack);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  padding-top: 100px;
+}
+.carouselContainer {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.swiper-pagination-bullet {
+  background: #ccc;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-primaryblack);
+}
