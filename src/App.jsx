@@ -21,7 +21,7 @@ function ProtectedRoute({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/aaruse">
       <HomeProvider>
         <Navbar />
         <Routes>
