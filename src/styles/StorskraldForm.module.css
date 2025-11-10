@@ -1,0 +1,44 @@
+.formWrapper {
+  padding: 20px;
+}
+
+.progressContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.stepWrapper {
+  text-align: center;
+  flex: 1;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  margin: 0 auto 6px;
+  font-size: 14px;
+}
+
+.active {
+  background: #c6f36b; /* bright green highlight like your mockups */
+  color: #000;
+}
+
+.stepLabel {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.stepContent {
+  margin-top: 10px;
+}
