@@ -25,6 +25,8 @@ function App() {
       <HomeProvider>
         <Navbar />
         <Routes>
+          <Route path="/aaruse" element={<Navigate to="/" replace />} />
+
           <Route path="/" element={<LoginPage />} />
           <Route
             path="/home"
