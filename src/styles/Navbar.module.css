@@ -1,0 +1,43 @@
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 88px;
+  background-color: var(--color-primarywhite);
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+.navItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+  margin-top: 9px;
+  margin-bottom: 25px;
+}
+
+.icon {
+  height: auto;
+  object-fit: contain;
+}
+
+.centerItem {
+  flex: 1.2; /* slightly wider */
+}
+
+.centerIcon {
+  height: auto;
+  object-fit: contain;
+}
+
+.active img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(1500%)
+    hue-rotate(180deg) brightness(95%) contrast(90%);
+  /* Optional tint effect for active */
+}
