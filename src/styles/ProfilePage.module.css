@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 6rem;
+  background-color: var(--color-primarywhite);
+  min-height: 100vh;
+}
+
+.header {
+  align-self: flex-start;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.imagePlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background-color: #eaeaea;
+  border: 1px solid #ccc;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-primaryblack);
+}
+
+.info {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.reviews {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.stars span {
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.button {
+  background-color: var(--color-primaryblack);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  width: 100%;
+  max-width: 280px;
+  padding: 12px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
