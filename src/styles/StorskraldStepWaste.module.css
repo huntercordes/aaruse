@@ -1,0 +1,121 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: #f3f3f3;
+  border-radius: 25px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+}
+
+.searchIcon {
+  font-size: 18px;
+  color: #888;
+  margin-right: 6px;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoryButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.itemsList {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 6px;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.itemLabel {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.dropdown {
+  width: 50px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.summaryBox {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.summaryHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.summaryContent {
+  padding: 10px 16px;
+  border-top: 1px solid #eee;
+}
+
+.summaryContent p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.continue {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 24px;
+}
