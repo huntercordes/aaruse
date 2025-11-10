@@ -1,0 +1,96 @@
+.overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-primarywhite);
+  border-radius: 16px 16px 0 0;
+  padding: 1rem 1.5rem 3rem;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cancelBtn,
+.saveBtn {
+  background: none;
+  border: none;
+  color: var(--color-primaryblack);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.imagePlaceholder {
+  width: 100px;
+  height: 100px;
+  background: #eaeaea;
+  border-radius: 12px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  margin-top: 1rem;
+  color: var(--color-primaryblack);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.textarea {
+  height: 80px;
+  resize: none;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.infoNote {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1rem;
+}
