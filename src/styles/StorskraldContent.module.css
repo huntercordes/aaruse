@@ -1,9 +1,13 @@
 .container {
   text-align: center;
-  padding: 20px;
+  padding: 2.5rem 1.5rem;
   animation: fadeIn 0.3s ease;
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: var(--font-primary);
 }
 
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -15,69 +19,94 @@
   }
 }
 
+/* Header row */
 .headerRow {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin-bottom: 0.4rem;
 }
 
 .title {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--color-primaryblack);
 }
 
 .infoIcon {
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
   color: var(--color-primaryblack);
 }
 
+/* Subtitle + text */
 .subtitle {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primaryblack);
+  margin-top: 0.5rem;
 }
 
 .text {
+  font-size: 0.95rem;
   color: #666;
-  margin-bottom: 20px;
+  margin: 0.3rem 0 2rem;
 }
 
+/* Buttons */
 .buttonGroup {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .primary,
 .secondary {
-  padding: 12px;
+  padding: 0.9rem;
   border-radius: 25px;
   font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.primary {
-  background-color: var(--color-primaryblack);
-}
-
-.secondary {
-  background-color: #333;
-  opacity: 0.85;
-}
-
-.learnMore {
-  background-color: #eee;
-  border: none;
-  border-radius: 20px;
-  color: #666;
-  padding: 10px 20px;
-  cursor: pointer;
   font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+/* Primary = blue */
+.primary {
+  background-color: var(--color-primaryblue);
+  color: var(--color-primarywhite);
+}
+
+/* Secondary = outlined blue button */
+.secondary {
+  background-color: var(--color-primaryblue);
+  color: var(--color-primarywhite);
+}
+
+.secondary:hover {
+  background-color: #0047ff;
+  color: #fff;
+}
+
+/* Learn More button (light grey with icon) */
+.learnMore {
+  background-color: transparent;
+  border: 1.5px solid var(--color-primaryblue);
+  color: #444;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.learnMore:hover {
+  background-color: #f3f3f3;
 }

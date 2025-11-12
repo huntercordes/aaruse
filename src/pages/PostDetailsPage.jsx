@@ -10,11 +10,11 @@ export default function PostDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // ✅ All state hooks at the top
+  //  All state hooks at the top
   const [post, setPost] = useState(null);
   const [isFavourite, setIsFavourite] = useState(false);
 
-  // ✅ Fetch the post when component loads
+  //  Fetch the post when component loads
   useEffect(() => {
     const fetchPost = async () => {
       const { data, error } = await supabase
@@ -28,7 +28,7 @@ export default function PostDetailsPage() {
     fetchPost();
   }, [id]);
 
-  // ✅ Check if current post is a favourite
+  //  Check if current post is a favourite
   useEffect(() => {
     checkIfFavourite();
   }, [id]);
@@ -116,7 +116,7 @@ export default function PostDetailsPage() {
     }
   };
 
-  // ✅ Conditional render comes AFTER all hooks
+  //  Conditional render comes AFTER all hooks
   if (!post) return <div className={styles.loading}>Loading...</div>;
 
   const images = post.image_urls || (post.image_url ? [post.image_url] : []);

@@ -18,11 +18,6 @@ export default function StorskraldContent() {
     <div className={styles.container}>
       <div className={styles.headerRow}>
         <h2 className={styles.title}>Storskrald</h2>
-        <Icon
-          icon="mdi:information-outline"
-          className={styles.infoIcon}
-          onClick={() => setShowIntroPopup(true)}
-        />
       </div>
 
       <p className={styles.subtitle}>Get your bulky waste picked up</p>
@@ -41,6 +36,11 @@ export default function StorskraldContent() {
         className={styles.learnMore}
         onClick={() => setShowIntroPopup(true)}>
         Learn more
+        <Icon
+          icon="mdi:information-outline"
+          className={styles.infoIcon}
+          onClick={() => setShowIntroPopup(true)}
+        />
       </button>
 
       {/* First intro popup */}

@@ -7,9 +7,10 @@ import PostPage from "./pages/PostPage";
 import PostDetailsPage from "./pages/PostDetailsPage";
 import FavouritesPage from "./pages/FavouritesPage";
 import { HomeProvider } from "./context/HomeContext";
-
+import PostTypePage from "./pages/PostTypePage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
+import PostSuccessPage from "./pages/PostSuccessPage";
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -21,7 +22,8 @@ function ProtectedRoute({ children }) {
 
 function App() {
   return (
-    <BrowserRouter basename="/aaruse">
+    <BrowserRouter
+      basename={import.meta.env.MODE === "production" ? "/aaruse" : "/"}>
       <HomeProvider>
         <Navbar />
         <Routes>
@@ -36,14 +38,41 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
-            path="/post"
+            path="/posttype"
             element={
               <ProtectedRoute>
-                <PostPage />
+                <PostTypePage />
               </ProtectedRoute>
             }
           />
+
+          <Route
+            path="/post/give"
+            element={
+              <ProtectedRoute>
+                <PostPage type="give" />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/post/sell"
+            element={
+              <ProtectedRoute>
+                <PostPage type="sell" />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/post/success/:type"
+            element={
+              <ProtectedRoute>
+                <PostSuccessPage />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/profile"
             element={

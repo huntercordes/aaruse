@@ -5,6 +5,8 @@ export default function StorskraldStepOverview({ formData, onContinue }) {
     <div className={styles.container}>
       <h3 className={styles.title}>Overview</h3>
 
+      <hr className={styles.divider} />
+
       <div className={styles.section}>
         <p className={styles.label}>Name</p>
         <p className={styles.value}>{formData.name || "—"}</p>
@@ -29,6 +31,13 @@ export default function StorskraldStepOverview({ formData, onContinue }) {
         <p className={styles.label}>Pickup date</p>
         <p className={styles.value}>{formData.pickupDate || "—"}</p>
       </div>
+
+      {formData.summary && (
+        <div className={styles.section}>
+          <p className={styles.label}>Selected items</p>
+          <p className={styles.value}>{formData.summary}</p>
+        </div>
+      )}
 
       <button className={styles.continue} onClick={onContinue}>
         Continue

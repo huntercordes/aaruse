@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import styles from "../styles/StorskraldStepWaste.module.css";
 
-export default function StorskraldStepWaste({ onContinue }) {
+export default function StorskraldStepWaste({
+  onContinue,
+  formData,
+  setFormData,
+}) {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [quantities, setQuantities] = useState({});
 
@@ -20,6 +24,7 @@ export default function StorskraldStepWaste({ onContinue }) {
     }));
   };
 
+  // Categories
   const categories = {
     Furniture: [
       "Mattress / Top Mattress",
@@ -95,11 +100,20 @@ export default function StorskraldStepWaste({ onContinue }) {
     ],
   };
 
+  // Convert selected quantities into summary
   const summaryItems = Object.entries(quantities).flatMap(([category, items]) =>
     Object.entries(items)
       .filter(([_, qty]) => Number(qty) > 0)
       .map(([item, qty]) => ({ category, item, qty }))
   );
+
+  // Save summary in formData
+  useEffect(() => {
+    const summaryText = summaryItems
+      .map((item) => `${item.qty}x ${item.item} (${item.category})`)
+      .join(", ");
+    setFormData((prev) => ({ ...prev, summary: summaryText }));
+  }, [quantities]);
 
   return (
     <div className={styles.container}>
@@ -137,11 +151,7 @@ export default function StorskraldStepWaste({ onContinue }) {
                 {categories[category].map((item) => (
                   <div key={item} className={styles.itemRow}>
                     <select
-                      value={
-                        quantities[category]?.[item]
-                          ? quantities[category][item]
-                          : 0
-                      }
+                      value={quantities[category]?.[item] || 0}
                       onChange={(e) =>
                         handleQuantityChange(
                           category,

@@ -1,49 +1,74 @@
 .container {
-  padding: 20px;
+  padding: 24px 20px;
+  font-family: var(--font-primary);
+  background-color: #fff;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .title {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
+  color: var(--color-primaryblack);
   margin-bottom: 16px;
 }
 
 .receiptBox {
   background: #f6f6f6;
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 24px;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 32px;
 }
 
 .address {
   font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--color-primaryblack);
+  margin-bottom: 14px;
 }
 
 .row {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .label {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
 }
 
 .value {
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #111;
+  color: var(--color-primaryblack);
+  line-height: 1.3rem;
 }
 
 .backButton {
-  background: #000;
-  color: #fff;
+  background: var(--color-primaryblue);
+  color: var(--color-primarywhite);
   width: 100%;
-  padding: 14px;
+  padding: 14px 0;
   border: none;
   border-radius: 25px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.backButton:hover {
+  background-color: #0039cc;
 }

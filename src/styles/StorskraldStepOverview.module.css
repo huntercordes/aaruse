@@ -1,38 +1,65 @@
 .container {
-  padding: 20px;
+  padding: 24px 20px;
+  background-color: #fff;
+  font-family: var(--font-primary);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .title {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
+  color: var(--color-primaryblack);
+  margin-bottom: 12px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
   margin-bottom: 16px;
 }
 
 .section {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .label {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #777;
   margin-bottom: 2px;
 }
 
 .value {
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #111;
+  color: var(--color-primaryblack);
+  line-height: 1.3rem;
 }
 
 .continue {
   margin-top: 24px;
   width: 100%;
-  padding: 14px;
-  background: #000;
-  color: #fff;
+  padding: 14px 0;
+  background: var(--color-primaryblue);
+  color: var(--color-primarywhite);
   border: none;
   border-radius: 25px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.continue:hover {
+  background-color: #0039cc;
 }

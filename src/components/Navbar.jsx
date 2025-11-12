@@ -15,9 +15,14 @@ export default function Navbar() {
   const location = useLocation();
 
   const handleClick = (section) => {
-    if (section === "home" || section === "storskrald") {
-      setActiveSection(section);
+    setActiveSection(section);
+
+    if (section === "home") {
       navigate("/home");
+    } else if (section === "storskrald") {
+      navigate("/home");
+    } else if (section === "posttype" || section === "post") {
+      navigate("/posttype"); // ✅ New PostType route
     } else {
       navigate(`/${section}`);
     }
@@ -39,8 +44,10 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`${styles.navItem} ${isActive("post") ? styles.active : ""}`}
-        onClick={() => handleClick("post")}>
+        className={`${styles.navItem} ${
+          isActive("posttype") ? styles.active : ""
+        }`}
+        onClick={() => handleClick("posttype")}>
         <img src={postIcon} alt="Post" className={styles.icon} />
       </div>
 

@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 import styles from "../styles/PostPage.module.css";
 import { Icon } from "@iconify/react";
 
-export default function PostPage() {
+export default function PostPage({ type }) {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     brand: "",
@@ -12,7 +15,7 @@ export default function PostPage() {
     size: "",
     sex: "",
     price: "",
-    isFree: false,
+    isFree: type === "give",
     description: "",
     materials: "",
     color: "",
@@ -25,10 +28,10 @@ export default function PostPage() {
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type: inputType, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: inputType === "checkbox" ? checked : value,
     });
   };
 
@@ -48,6 +51,7 @@ export default function PostPage() {
       } = await supabase.auth.getUser();
       if (userError || !user) throw new Error("User not logged in");
 
+      // 🔹 Upload images
       let imageUrls = [];
       if (formData.imageFiles.length > 0) {
         for (const file of formData.imageFiles) {
@@ -67,6 +71,7 @@ export default function PostPage() {
         }
       }
 
+      // 🔹 Insert into Supabase
       const { error } = await supabase.from("posts").insert([
         {
           user_id: user.id,
@@ -76,8 +81,8 @@ export default function PostPage() {
           condition: formData.condition,
           size: formData.size,
           sex: formData.sex,
-          price: formData.isFree ? 0 : Number(formData.price),
-          is_free: formData.isFree,
+          price: type === "give" ? 0 : Number(formData.price),
+          is_free: type === "give" ? true : formData.isFree,
           description: formData.description,
           materials: formData.materials,
           color: formData.color,
@@ -85,27 +90,18 @@ export default function PostPage() {
           location_details: formData.locationDetails,
           image_urls: imageUrls,
           image_url: imageUrls[0] || null,
+          post_type: type,
         },
       ]);
 
       if (error) throw error;
 
-      setMessage("✅ Item successfully posted!");
-      setFormData({
-        title: "",
-        brand: "",
-        category: "",
-        condition: "",
-        size: "",
-        sex: "",
-        price: "",
-        isFree: false,
-        description: "",
-        materials: "",
-        color: "",
-        isPublic: false,
-        locationDetails: "",
-        imageFiles: [],
+      // ✅ Navigate to success page with item info
+      navigate(`/post/success/${type}`, {
+        state: {
+          title: formData.title,
+          image: imageUrls[0] || "",
+        },
       });
     } catch (err) {
       console.error("❌ Error creating post:", err.message);
@@ -117,7 +113,9 @@ export default function PostPage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Post an item</h1>
+      <h1 className={styles.title}>
+        {type === "give" ? "Give an item" : "Post an item"}
+      </h1>
 
       <form onSubmit={handleSubmit} className={styles.form}>
         {/* 🔹 Multiple image upload */}
@@ -163,34 +161,26 @@ export default function PostPage() {
           onChange={handleChange}
           className={styles.input}
         />
-        {/* 🔹 Price input */}
-        <label className={styles.label}>
-          Please enter a price for your item:
-        </label>
-        <div className={styles.priceRow}>
-          <input
-            name="price"
-            type="number"
-            placeholder="Price"
-            value={formData.price}
-            onChange={handleChange}
-            className={styles.priceInput}
-            disabled={formData.isFree} // disable if "Free" is checked
-          />
-          <span className={styles.currency}>DKK</span>
-        </div>
 
-        {/* 🔹 Free toggle */}
-        <div className={styles.switchRow}>
-          <label className={styles.label}>Is your item free?</label>
-          <input
-            type="checkbox"
-            name="isFree"
-            checked={formData.isFree}
-            onChange={handleChange}
-            className={styles.checkbox}
-          />
-        </div>
+        {/* 🔹 Price only visible for "sell" */}
+        {type === "sell" && (
+          <>
+            <label className={styles.label}>
+              Please enter a price for your item:
+            </label>
+            <div className={styles.priceRow}>
+              <input
+                name="price"
+                type="number"
+                placeholder="Price"
+                value={formData.price}
+                onChange={handleChange}
+                className={styles.priceInput}
+              />
+              <span className={styles.currency}>DKK</span>
+            </div>
+          </>
+        )}
 
         {/* 🔹 Category */}
         <label className={styles.label}>Category</label>

@@ -33,7 +33,7 @@ export default function StorskraldForm() {
   };
 
   const handleBackHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (
@@ -57,7 +57,7 @@ export default function StorskraldForm() {
               {i === 0
                 ? "Choose location"
                 : i === 1
-                ? "Select waste"
+                ? "Select the waste"
                 : i === 2
                 ? "Order Overview"
                 : "Order Receipt"}
@@ -71,11 +71,18 @@ export default function StorskraldForm() {
         {currentStep === "address" && (
           <StorskraldStepAddress
             subStep={subStep}
+            formData={formData}
+            setFormData={setFormData}
             onContinue={handleContinue}
           />
         )}
+
         {currentStep === "waste" && (
-          <StorskraldStepWaste onContinue={handleContinue} />
+          <StorskraldStepWaste
+            onContinue={handleContinue}
+            formData={formData}
+            setFormData={setFormData}
+          />
         )}
         {currentStep === "overview" && (
           <StorskraldStepOverview
