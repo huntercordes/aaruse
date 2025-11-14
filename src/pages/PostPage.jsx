@@ -71,7 +71,7 @@ export default function PostPage({ type }) {
         }
       }
 
-      // 🔹 Insert into Supabase
+      //  Insert into Supabase
       const { error } = await supabase.from("posts").insert([
         {
           user_id: user.id,

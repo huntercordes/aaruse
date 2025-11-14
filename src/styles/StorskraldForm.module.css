@@ -43,3 +43,31 @@
 .stepContent {
   margin-top: 10px;
 }
+.headerRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers the title */
+  padding: 10px 0;
+}
+
+/* Back button stays left */
+.backButton {
+  position: absolute;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 500;
+  bottom: 14px;
+}
+
+/* Title stays centered because the wrapper is centered */
+.stepTitle {
+  font-size: 22px;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  color: var(--color-primaryblack);
+}

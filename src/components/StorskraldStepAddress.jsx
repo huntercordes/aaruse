@@ -66,7 +66,7 @@ export default function StorskraldStepAddress({
         </>
       ) : (
         <>
-          {/* ✅ Address summary */}
+          {/*  Address summary */}
           {formData.address && (
             <div className={styles.addressSummary}>
               <p className={styles.addressText}>{formData.address}</p>
@@ -163,7 +163,7 @@ export default function StorskraldStepAddress({
             </div>
           </div>
 
-          {/* ✅ User info */}
+          {/*  User info */}
           <div className={styles.formGroup}>
             <h4>Your information</h4>
             <input

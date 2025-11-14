@@ -5,6 +5,7 @@ import StorskraldStepWaste from "../components/StorskraldStepWaste";
 import StorskraldStepOverview from "../components/StorskraldStepOverview";
 import StorskraldStepReceipt from "../components/StorskraldStepReceipt";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 export default function StorskraldForm() {
   const navigate = useNavigate();
@@ -33,11 +34,61 @@ export default function StorskraldForm() {
   };
 
   const handleBackHome = () => {
-    navigate("/");
+    navigate("/home");
+  };
+  const handleBack = () => {
+    // Step 1.2 → Step 1.1
+    if (currentStep === "address" && subStep === "date") {
+      setSubStep("address");
+      return;
+    }
+
+    // Step 2 → Step 1.2
+    if (currentStep === "address" && subStep === "address") {
+      navigate("/"); // from first screen → home
+      return;
+    }
+
+    // Step 2 → Step 1
+    if (currentStep === "waste") {
+      setCurrentStep("address");
+      setSubStep("date");
+      return;
+    }
+
+    // Step 3 → Step 2
+    if (currentStep === "overview") {
+      setCurrentStep("waste");
+      return;
+    }
+
+    // Step 4 → Step 3
+    if (currentStep === "receipt") {
+      setCurrentStep("overview");
+      return;
+    }
+  };
+  const getStepTitle = () => {
+    if (currentStep === "address") return "Pickup information";
+    if (currentStep === "waste") return "Storskrald";
+    if (currentStep === "overview") return "Order overview";
+    if (currentStep === "receipt") return "Order receipt";
+
+    return "";
   };
 
   return (
     <div className={styles.formWrapper}>
+      {/* Back button */}
+      <div className={styles.headerRow}>
+        <Icon
+          className={styles.backButton}
+          onClick={handleBack}
+          icon={"mdi:chevron-left"}
+        />
+        <h2 className={styles.stepTitle}>{getStepTitle()}</h2>
+      </div>
+
       {/* Progress bar */}
       <div className={styles.progressContainer}>
         {["1", "2", "3", "4"].map((num, i) => (

@@ -20,7 +20,6 @@ export default function PostTypePage() {
 
       <div className={styles.iconWrapper}>
         <img src={aaruselogo} alt="AARUSE logo" className={styles.logo} />
-        <h1 className={styles.logoText}>AARUSE</h1>
       </div>
 
       <p className={styles.intro}>Share your items through AARUSE!</p>
