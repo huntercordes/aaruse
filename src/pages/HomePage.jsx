@@ -176,13 +176,6 @@ export default function HomePage() {
                       </div>
 
                       {/* Heart toggle */}
-                      <Icon
-                        icon={isFavourite ? "ph:heart-fill" : "ph:heart-light"}
-                        className={`${styles.heartIcon} ${
-                          isFavourite ? styles.activeHeart : ""
-                        }`}
-                        onClick={() => toggleFavourite(post.id)}
-                      />
 
                       <div className={styles.cardInfo}>
                         <h3 className={styles.cardTitle}>{post.title}</h3>

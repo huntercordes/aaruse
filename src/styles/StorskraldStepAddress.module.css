@@ -117,6 +117,16 @@ h3 {
   cursor: pointer;
   color: #666;
 }
+.infoBox {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  color: var(--color-primaryblack);
+}
+.infoHint {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: var(--color-primaryblack);
+}
 
 /* DO and DON’T section */
 .doDontWrapper {

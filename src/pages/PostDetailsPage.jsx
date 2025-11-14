@@ -130,7 +130,9 @@ export default function PostDetailsPage() {
           className={styles.backIcon}
           onClick={() => navigate(-1)}
         />
+
         <span className={styles.more}>More Details</span>
+
         <Icon
           icon={isFavourite ? "ph:heart-fill" : "ph:heart-light"}
           className={`${styles.heartIcon} ${
@@ -140,22 +142,25 @@ export default function PostDetailsPage() {
         />
       </div>
 
-      {/* Info */}
-      <h2 className={styles.title}>{post.title}</h2>
-      <div className={styles.detailsRow}>
-        <div>
-          <p className={styles.label}>Price</p>
-          <p className={styles.value}>
-            {post.is_free ? "Free" : `${post.price} DKK`}
-          </p>
-        </div>
-        <div>
-          <p className={styles.label}>Condition</p>
-          <p className={styles.value}>{post.condition || "Unknown"}</p>
-        </div>
-        <div>
-          <p className={styles.label}>Location</p>
-          <p className={styles.value}>{post.location_details || "N/A"}</p>
+      {/* Title + 3-column info */}
+      <div className={styles.headerContent}>
+        <h2 className={styles.title}>{post.title}</h2>
+
+        <div className={styles.metaRow}>
+          <div>
+            <p className={styles.metaLabel}>Price</p>
+            <p className={styles.metaValue}>
+              {post.is_free ? "Free" : `${post.price} DKK`}
+            </p>
+          </div>
+          <div>
+            <p className={styles.metaLabel}>Condition</p>
+            <p className={styles.metaValue}>{post.condition}</p>
+          </div>
+          <div>
+            <p className={styles.metaLabel}>Location</p>
+            <p className={styles.metaValue}>{post.location_details}</p>
+          </div>
         </div>
       </div>
 
@@ -165,31 +170,23 @@ export default function PostDetailsPage() {
           spaceBetween={10}
           slidesPerView={1}
           pagination={{ clickable: true }}>
-          {images.length > 0 ? (
-            images.map((img, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  src={img}
-                  alt={`${post.title} ${index + 1}`}
-                  className={styles.image}
-                />
-              </SwiperSlide>
-            ))
-          ) : (
-            <SwiperSlide>
-              <div className={styles.placeholder}></div>
+          {images.map((img, index) => (
+            <SwiperSlide key={index}>
+              <img src={img} alt="" className={styles.image} />
             </SwiperSlide>
-          )}
+          ))}
         </Swiper>
       </div>
 
-      {/* About product */}
+      {/* About section */}
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>About the product</h3>
+
         <div className={styles.detailRow}>
           <span className={styles.label}>Brand</span>
-          <span className={styles.value}>{post.brand || "Unknown"}</span>
+          <span className={styles.value}>{post.brand}</span>
         </div>
+
         <div className={styles.detailRow}>
           <span className={styles.label}>Description</span>
           <span className={styles.value}>{post.description}</span>
@@ -199,15 +196,13 @@ export default function PostDetailsPage() {
       {/* Availability */}
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Availability</h3>
-        <p className={styles.availability}>Marked as available yesterday</p>
+        <p className={styles.availability}>Marked as available 2 hours ago</p>
       </div>
 
       {/* Buttons */}
-      <div className={styles.buttonRow}>
+      <div className={styles.buttonColumn}>
+        <button className={styles.reportBtn}>Mark as possibly taken</button>
         <button className={styles.contactBtn}>Contact Seller</button>
-        <button className={styles.addBtn} onClick={handleAddToBag}>
-          Add to bag
-        </button>
       </div>
     </div>
   );
