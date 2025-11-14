@@ -1,7 +1,7 @@
 @import url(https://db.onlinewebfonts.com/c/3724ece79a634e7b5168905d01e59a64?family=Maison+Neue+Book);
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
-  /* 🎨 Colors */
+  /*  Colors */
   --color-primaryblack: #2f2e2c;
   --color-primarywhite: #fefefe;
   --color-primaryblue: #3b4abf;
@@ -9,27 +9,27 @@
   --color-secondarymuted: #eeeeef;
   --color-error: #e63946;
 
-  /* 🖋️ Typography */
+  /*  Typography */
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Maison Neue Book", sans-serif;
   --font-heading: "Anton", sans-serif;
   --font-size-base: 16px;
   --font-size-title: 2rem;
-  --font-size-subtitle: 1.25rem;
+  --font-size-subtitle: 1.2rem;
 
-  /* 📏 Spacing */
+  /*  Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 40px;
 
-  /* 🔳 Borders */
+  /*  Borders */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
 
-  /* 💨 Shadows */
+  /*  Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
